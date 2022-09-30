@@ -1,0 +1,146 @@
+package com.masai.dao;
+
+import com.masai.Utility.DBUtil;
+import com.masai.bean.Administrator;
+import com.masai.bean.Tender;
+import com.masai.bean.Vendor;
+import com.masai.exceptions.TenderManagementException;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class TenderManagementAdminDaoImpl implements TenderManagementAdminDao{
+
+    @Override
+    public String administratorLogIn(Administrator administrator) throws TenderManagementException {
+        String message="Wrong Username Or Password";
+
+        try (Connection connection=new DBUtil().provideConnection()) {
+            PreparedStatement preparedStatement=connection.prepareStatement(" select if(Username=? AND Password=?, 'Yes', 'No')Result from Administrator");
+            preparedStatement.setString(1,administrator.getUsername());
+            preparedStatement.setString(2,administrator.getPassword());
+
+            ResultSet resultSet=preparedStatement.executeQuery();
+            if (resultSet.next()){
+                String result=resultSet.getString("Result");
+                if (result.equalsIgnoreCase("Yes")){
+                    message="Administrator Login Successfully";
+                }
+            }
+
+        } catch (SQLException sqlException) {
+            throw new TenderManagementException(sqlException.getMessage());
+        }
+
+        return message;
+    }
+
+    @Override
+    public String createVendor(Vendor vendor) throws TenderManagementException {
+        String message="Vendor Not Added";
+
+        try (Connection connection =new DBUtil().provideConnection()) {
+            PreparedStatement preparedStatement=connection.prepareStatement("insert into Vendors (VendorName , Username , Password ,TenderID) VALUES(?,?,?,null);");
+            preparedStatement.setString(1,vendor.getVendorName());
+            preparedStatement.setString(2,"admin");
+            preparedStatement.setString(3,"password");
+
+            if(preparedStatement.executeUpdate()>0){
+                message="Vendor Added";
+            }
+
+        } catch (SQLException sqlException) {
+            throw new TenderManagementException(sqlException.getMessage());
+        }
+
+        return message;
+    }
+
+    @Override
+    public List<Vendor> showAllVendors() throws TenderManagementException {
+        List<Vendor>vendors=null;
+
+        try (Connection connection=new DBUtil().provideConnection()) {
+            PreparedStatement preparedStatement=connection.prepareStatement("select vendorID, VendorName from Vendors;");
+            ResultSet resultSet=preparedStatement.executeQuery();
+            vendors=new ArrayList<>();
+            while (resultSet.next()){
+                Vendor vendor=new Vendor();
+                vendor.setVendorID(resultSet.getInt("vendorID"));
+                vendor.setVendorName(resultSet.getString("VendorName"));
+                vendors.add(vendor);
+            }
+
+        } catch (SQLException sqlException) {
+            throw new TenderManagementException(sqlException.getMessage());
+        }
+
+        return vendors;
+    }
+
+    @Override
+    public String createTender(Tender tender) throws TenderManagementException {
+        String message="Not Added";
+
+        try (Connection connection=new DBUtil().provideConnection()) {
+            PreparedStatement preparedStatement=connection.prepareStatement("insert into Tenders (BidName,BidPrice,VendorID) values (?,?,null);");
+            preparedStatement.setString(1,tender.getBidName());
+            preparedStatement.setInt(2,tender.getBidPrice());
+
+            if (preparedStatement.executeUpdate()>0){
+                message="Tender Added";
+            }
+
+        } catch (SQLException sqlException) {
+            throw new TenderManagementException(sqlException.getMessage());
+        }
+        return message;
+    }
+
+    @Override
+    public List<Tender> showAllTenders() throws TenderManagementException {
+        List<Tender>tenders=null;
+
+        try (Connection connection=new DBUtil().provideConnection()) {
+            PreparedStatement preparedStatement=connection.prepareStatement("select * from Tenders;");
+            ResultSet resultSet=preparedStatement.executeQuery();
+            tenders=new ArrayList<>();
+            while (resultSet.next()){
+                Tender tender=new Tender();
+                tender.setTenderID(resultSet.getInt("TenderID"));
+                tender.setBidName(resultSet.getString("BidName"));
+                tender.setBidPrice(resultSet.getInt("BidPrice"));
+                tender.setVendorID(resultSet.getInt("VendorID"));
+                tenders.add(tender);
+            }
+
+        } catch (SQLException sqlException) {
+            throw new TenderManagementException(sqlException.getMessage());
+        }
+
+        return tenders;
+    }
+
+    @Override
+    public String assignTenderToVendor(Tender tender) throws TenderManagementException {
+        String message="Not Assign";
+
+        try (Connection connection=new DBUtil().provideConnection()) {
+            PreparedStatement preparedStatement=connection.prepareStatement("update Tenders set VendorID=? where TenderId=?;");
+            preparedStatement.setInt(1,tender.getVendorID());
+            preparedStatement.setInt(2,tender.getTenderID());
+
+            if (preparedStatement.executeUpdate()>0){
+                message="Assign Tender ID : "+tender.getTenderID()+" to Vendor ID : "+tender.getVendorID();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return message;
+    }
+}
