@@ -1,23 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3da9ce8d-498b-461e-8017-e668794a2f05" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Bank-Management-System/src/com/masai/dao/BankManagementDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Bank-Management-System/src/com/masai/dao/BankManagementDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/folderico-pink.ico" beforeDir="false" />
-    </list>
+    <list default="true" id="c191b21e-eb63-42b3-8fc0-7053364aceff" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
-  <component name="ProjectId" id="2FPHaJ5IJmN5Pth8wHzrJ4CmxJu" />
+  <component name="ProjectId" id="2FU966WSc8hvZL9fqZmOzx8w58b" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -26,36 +16,22 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/shubh/OneDrive/Desktop/BankManagementSystem/Bank-Management-System"
+    "WebServerToolWindowFactoryState": "false"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="3da9ce8d-498b-461e-8017-e668794a2f05" name="Changes" comment="" />
-      <created>1664386861131</created>
+      <changelist id="c191b21e-eb63-42b3-8fc0-7053364aceff" name="Changes" comment="" />
+      <created>1664535619849</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1664386861131</updated>
-      <workItem from="1664386862541" duration="12000" />
-      <workItem from="1664389942377" duration="45000" />
-      <workItem from="1664431124145" duration="92000" />
+      <updated>1664535619849</updated>
+      <workItem from="1664535621029" duration="57000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
 </project>
