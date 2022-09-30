@@ -57,7 +57,7 @@ public class Main {
                                 break;
 
                             case 4:
-                                new ShowAllTenders().adminShowAllTenders();
+                                new AdministratorShowAllTenders().adminShowAllTenders();
                                 break;
 
                             case 5:
@@ -75,6 +75,52 @@ public class Main {
                 }
 
             } else if (userInput==2) {
+
+                Boolean result=new VendorLogIn().vendorLogin();
+
+                if (result){
+
+                    while (true){
+
+                        System.out.println("View all the current Tenders : 1");
+                        System.out.println("Place a Bid against a Tender : 2");
+                        System.out.println("Assign tender to a vendor : 3");
+                        System.out.println("");
+                        System.out.println("Exit : 5");
+
+                        int userVendorInput=scanner.nextInt();
+
+                        if (userVendorInput==5){
+                            break;
+                        }
+
+                        switch (userVendorInput){
+
+                            case 1:
+                                new VendorShowAllTenders().vendorAllTenders();
+                                break;
+
+                            case 2:
+                                new PlaceBidAgainstTender().placeBid();
+                                break;
+
+                            case 3:
+                                new CreateTender().adminCreateTender();
+                                break;
+
+                            case 4:
+                                new AdministratorShowAllTenders().adminShowAllTenders();
+                                break;
+
+                            default:
+                                System.out.println("Wrong Key");
+                                break;
+
+                        }
+
+                    }
+
+                }
 
 
             }else System.out.println("Entered Wrong Key");

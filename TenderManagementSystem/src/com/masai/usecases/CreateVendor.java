@@ -1,7 +1,7 @@
 package com.masai.usecases;
 
 import com.masai.bean.Vendor;
-import com.masai.dao.TenderManagementAdminDaoImpl;
+import com.masai.dao.TenderManagementDaoImpl;
 import com.masai.exceptions.TenderManagementException;
 
 import java.util.Scanner;
@@ -12,12 +12,18 @@ public class CreateVendor {
         try {
 
             Scanner scanner=new Scanner(System.in);
-            System.out.println("Enter Your Vendor Name : ");
+            System.out.println("Enter Vendor Name :");
             String vendorName=scanner.nextLine();
+            System.out.println("Enter Vendor Username :");
+            String username=scanner.next();
+            System.out.println("Enter Password");
+            String password=scanner.next();
 
             Vendor vendor=new Vendor();
             vendor.setVendorName(vendorName);
-            String result = new TenderManagementAdminDaoImpl().createVendor(vendor);
+            vendor.setUsername(username);
+            vendor.setPassword(password);
+            String result = new TenderManagementDaoImpl().createVendor(vendor);
 
             System.out.println(result);
 

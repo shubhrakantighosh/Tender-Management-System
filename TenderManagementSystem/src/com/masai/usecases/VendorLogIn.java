@@ -1,25 +1,29 @@
 package com.masai.usecases;
 
-import com.masai.bean.Administrator;
+import com.masai.bean.Vendor;
 import com.masai.dao.TenderManagementDaoImpl;
 import com.masai.exceptions.TenderManagementException;
 
 import java.util.Scanner;
 
-public class AdministratorLogin {
-    public boolean adminLogIn() {
-
+public class VendorLogIn {
+    public boolean vendorLogin() {
         try {
 
             Scanner scanner=new Scanner(System.in);
+            System.out.println("Enter Vendor ID : ");
+            int vendorID=scanner.nextInt();
             System.out.println("Enter Username : ");
             String userName=scanner.next();
             System.out.println("Enter Password : ");
             String password=scanner.next();
 
-            Administrator administrator=new Administrator(userName,password);
+            Vendor vendor=new Vendor();
+            vendor.setVendorID(vendorID);
+            vendor.setUsername(userName);
+            vendor.setPassword(password);
 
-            String message=new TenderManagementDaoImpl().administratorLogIn(administrator);
+            String message=new TenderManagementDaoImpl().vendorLogIn(vendor);
             System.out.println(message);
 
             if (message.equalsIgnoreCase("Login Successfully")){

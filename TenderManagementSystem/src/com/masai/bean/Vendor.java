@@ -4,9 +4,8 @@ public class Vendor {
 
     private int vendorID;
     private String vendorName;
-    private String userName;
+    private String username;
     private String password;
-    private int tenderID;
 
     public int getVendorID() {
         return vendorID;
@@ -24,12 +23,12 @@ public class Vendor {
         this.vendorName = vendorName;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
@@ -40,20 +39,11 @@ public class Vendor {
         this.password = password;
     }
 
-    public int getTenderID() {
-        return tenderID;
-    }
-
-    public void setTenderID(int tenderID) {
-        this.tenderID = tenderID;
-    }
-
-    public Vendor(int vendorID, String vendorName, String userName, String password, int tenderID) {
+    public Vendor(int vendorID, String vendorName, String username, String password) {
         this.vendorID = vendorID;
         this.vendorName = vendorName;
-        this.userName = userName;
+        this.username = username;
         this.password = password;
-        this.tenderID = tenderID;
     }
 
     @Override
@@ -61,9 +51,8 @@ public class Vendor {
         return "Vendor{" +
                 "vendorID=" + vendorID +
                 ", vendorName='" + vendorName + '\'' +
-                ", userName='" + userName + '\'' +
+                ", userName='" + username + '\'' +
                 ", password='" + password + '\'' +
-                ", tenderID=" + tenderID +
                 '}';
     }
 

@@ -1,15 +1,15 @@
 package com.masai.usecases;
 
 import com.masai.bean.Tender;
-import com.masai.dao.TenderManagementAdminDaoImpl;
+import com.masai.dao.TenderManagementDaoImpl;
 import com.masai.exceptions.TenderManagementException;
 
 import java.util.List;
 
-public class ShowAllTenders {
+public class AdministratorShowAllTenders {
     public void adminShowAllTenders() {
         try {
-            List<Tender>tenders=new TenderManagementAdminDaoImpl().showAllTenders();
+            List<Tender>tenders=new TenderManagementDaoImpl().showAllTenders();
             for (Tender tender:tenders){
                 String message="";
                 System.out.println("Tender ID : "+tender.getTenderID());

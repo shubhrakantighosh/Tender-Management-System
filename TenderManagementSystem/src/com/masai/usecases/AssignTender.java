@@ -1,7 +1,7 @@
 package com.masai.usecases;
 
 import com.masai.bean.Tender;
-import com.masai.dao.TenderManagementAdminDaoImpl;
+import com.masai.dao.TenderManagementDaoImpl;
 import com.masai.exceptions.TenderManagementException;
 
 import java.util.Scanner;
@@ -20,7 +20,7 @@ public class AssignTender {
             tender.setTenderID(tenderID);
             tender.setVendorID(vendorID);
 
-            String result=new TenderManagementAdminDaoImpl().assignTenderToVendor(tender);
+            String result=new TenderManagementDaoImpl().assignTenderToVendor(tender);
             System.out.println(result);
 
         } catch (TenderManagementException e) {

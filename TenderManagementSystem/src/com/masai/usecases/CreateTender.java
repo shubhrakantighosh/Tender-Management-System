@@ -1,7 +1,7 @@
 package com.masai.usecases;
 
 import com.masai.bean.Tender;
-import com.masai.dao.TenderManagementAdminDaoImpl;
+import com.masai.dao.TenderManagementDaoImpl;
 import com.masai.exceptions.TenderManagementException;
 
 import java.util.Scanner;
@@ -21,7 +21,7 @@ public class CreateTender {
             tender.setBidName(bidName);
             tender.setBidPrice(bidPrice);
 
-            String result=new TenderManagementAdminDaoImpl().createTender(tender);
+            String result=new TenderManagementDaoImpl().createTender(tender);
             System.out.println(result);
 
         } catch (TenderManagementException e) {
