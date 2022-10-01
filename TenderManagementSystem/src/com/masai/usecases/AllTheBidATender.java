@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class AllTheBidATender {
-    public static void main(String[] args) {
+    public void bidATender(){
 
         try {
 

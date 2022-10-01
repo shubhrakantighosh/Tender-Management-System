@@ -62,6 +62,10 @@ public class Main {
                                 break;
 
                             case 5:
+                                new AllTheBidATender().bidATender();
+                                break;
+
+                            case 6:
                                 new AssignTender().adminAssignTender();
                                 break;
 
