@@ -2,7 +2,7 @@ package com.masai.startapplication;
 
 import com.masai.usecases.*;
 
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -33,7 +33,8 @@ public class Main {
                         System.out.println("View all the vendors : 2");
                         System.out.println("Create new tenders : 3");
                         System.out.println("View All the Tenders : 4");
-                        System.out.println("Assign tender to a vendor : 5");
+                        System.out.println("View All the Bids of a tender : 5 ");
+                        System.out.println("Assign tender to a vendor : 6");
                         System.out.println("Exit : 6");
 
                         int userAdminInput=scanner.nextInt();

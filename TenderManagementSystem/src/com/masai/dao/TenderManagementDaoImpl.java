@@ -127,6 +127,30 @@ public class TenderManagementDaoImpl implements TenderManagementDao {
     }
 
     @Override
+    public List<Vendor_Tender> administratorViewAllTheBids(Vendor_Tender vendor_tender) throws TenderManagementException {
+        List<Vendor_Tender>vendorList=null;
+
+        try (Connection connection=new DBUtil().provideConnection()) {
+            PreparedStatement preparedStatement=connection.prepareStatement(" select VendorID, Price from Vendor_Tender where TenderID=?;");
+            preparedStatement.setInt(1,vendor_tender.getTenderID());
+
+            ResultSet resultSet=preparedStatement.executeQuery();
+            vendorList=new ArrayList<>();
+            while (resultSet.next()){
+                Vendor_Tender vendorTender=new Vendor_Tender();
+                vendorTender.setVendorID(resultSet.getInt("VendorID"));
+                vendorTender.setPrice(resultSet.getInt("Price"));
+                vendorList.add(vendorTender);
+            }
+
+        } catch (SQLException sqlException) {
+            throw new TenderManagementException(sqlException.getMessage());
+        }
+
+        return vendorList;
+    }
+
+    @Override
     public String assignTenderToVendor(Tender tender) throws TenderManagementException {
         String message="Not Assign";
 
