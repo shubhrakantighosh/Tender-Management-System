@@ -1,0 +1,45 @@
+Administrator Table ->
+
+Create Table Administrator(
+Username varchar(25) Primary Key,
+Password varchar(25) Not Null 
+);
+
+
+
+Vendor Table ->
+
+Create Table Vendors( 
+vendorID int AUTO_INCREMENT, 
+VendorName varchar(20) Not Null,
+Username varchar(25) Not Null , 
+Password varchar(25), 
+ Primary Key(vendorID)
+);
+
+
+
+
+Tender Table ->
+
+
+Create Table Tenders( 
+TenderID int AUTO_INCREMENT,
+ BidName varchar(20) Not Null, 
+BidPrice int Not Null ,
+VendorID int,
+Primary Key(TenderID) 
+);
+
+
+
+
+Vendor_Tender->
+
+
+Create Table Vendor_Tender(
+VendorID int Not Null, 
+TenderID int Not Null, 
+Price int Not Null,
+Primary Key(VendorID,TenderID) 
+);
