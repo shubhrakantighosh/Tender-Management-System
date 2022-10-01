@@ -6,7 +6,7 @@
 <li>Vendor</li>
 
 
-<h3>The Role of Administrator is</h3>
+<h3>The Role of Administrator</h3>
 
 <li>Create new Vendor.</li>
 <li>View all the vendors.</li>
@@ -15,7 +15,7 @@
 <li>View All the Bids of a tender.</li>
 <li>Select a Bid.</li>
 
-<h3>The Role of a Vendor is</h3>
+<h3>The Role of a Vendor</h3>
 
 <li>View all the current Tenders.</li>
 <li>Place a Bid against a Tender.</li>
