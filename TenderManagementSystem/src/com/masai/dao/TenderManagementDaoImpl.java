@@ -195,8 +195,8 @@ public class TenderManagementDaoImpl implements TenderManagementDao {
         String message="";
 
         try (Connection connection=new DBUtil().provideConnection()) {
-            PreparedStatement preparedStatement=connection.prepareStatement("select vendorID from tenders where tenderid in(select tenderid from vendor_tender where tenders.tenderid=vendor_tender.?);");
-            preparedStatement.setInt(1,vendor_tender.getTenderID());
+            PreparedStatement preparedStatement=connection.prepareStatement(" select vendorID from tenders where tenderid in(select tenderid from vendor_tender where vendor_tender.tenderid=tenders.tenderid );");
+//            preparedStatement.setInt(1,vendor_tender.getTenderID());
 
             ResultSet resultSet=preparedStatement.executeQuery();
 
@@ -210,6 +210,29 @@ public class TenderManagementDaoImpl implements TenderManagementDao {
 
 
         return message;
+    }
+
+    @Override
+    public List<Vendor_Tender> vendorBidHistory(Vendor_Tender vendor_tender) throws TenderManagementException {
+        List<Vendor_Tender>tenderList=null;
+        try (Connection connection=new DBUtil().provideConnection()) {
+            PreparedStatement  preparedStatement=connection.prepareStatement("select TenderID from Vendor_Tender where VendorID=?;");
+            preparedStatement.setInt(1,vendor_tender.getVendorID());
+            ResultSet resultSet=preparedStatement.executeQuery();
+
+            tenderList=new ArrayList<>();
+
+            while (resultSet.next()){
+                Vendor_Tender vendorTender=new Vendor_Tender();
+                vendorTender.setTenderID(resultSet.getInt("TenderID"));
+                tenderList.add(vendorTender);
+            }
+
+        } catch (SQLException sqlException) {
+            throw new TenderManagementException(sqlException.getMessage());
+        }
+
+        return tenderList;
     }
 
 }

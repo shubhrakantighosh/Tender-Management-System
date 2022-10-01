@@ -19,5 +19,6 @@ public interface TenderManagementDao {
     public String vendorLogIn(Vendor vendor) throws TenderManagementException;
     public String placeBidAgainstTender(Vendor_Tender vendor_tender) throws TenderManagementException;
     public String statusOfBid(Vendor_Tender vendor_tender) throws TenderManagementException;
+    public List<Vendor_Tender> vendorBidHistory(Vendor_Tender vendor_tender) throws TenderManagementException;
 
 }
