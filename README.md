@@ -33,3 +33,8 @@
   <li>MySQL</li>
   <li>IntelliJ IDEA</li>
 <li>Java JDK 8+</li>  
+
+</br>
+<h1>The ER Diagram of my project:</h1>
+
+[![Tender.png](https://i.postimg.cc/wjdvY4Gr/Tender.png)](https://postimg.cc/vc3MWhM7)
