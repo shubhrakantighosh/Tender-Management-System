@@ -33,5 +33,3 @@
   <li>MySQL</li>
   <li>IntelliJ IDEA</li>
 <li>Java JDK 8+</li>  
-
-
