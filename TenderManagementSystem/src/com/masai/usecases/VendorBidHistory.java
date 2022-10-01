@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class VendorBidHistory {
-    public static void main(String[] args) {
+    public void bidHistory() {
         try {
 
             Scanner scanner=new Scanner(System.in);

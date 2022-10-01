@@ -85,7 +85,7 @@ public class Main {
                         System.out.println("View all the current Tenders : 1");
                         System.out.println("Place a Bid against a Tender : 2");
                         System.out.println("Assign tender to a vendor : 3");
-                        System.out.println("");
+                        System.out.println("View his own Bid History : 4");
                         System.out.println("Exit : 5");
 
                         int userVendorInput=scanner.nextInt();
@@ -109,7 +109,7 @@ public class Main {
                                 break;
 
                             case 4:
-                                new AdministratorShowAllTenders().adminShowAllTenders();
+                                new VendorBidHistory().bidHistory();
                                 break;
 
                             default:
