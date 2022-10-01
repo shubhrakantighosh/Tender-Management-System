@@ -19,10 +19,20 @@ public class AllTheBidATender {
             vendorTender.setTenderID(tenderID);
 
             List<Vendor_Tender>vendorList=new TenderManagementDaoImpl().administratorViewAllTheBids(vendorTender);
-            System.out.println("All the BId against the tender No "+tenderID);
-            for (Vendor_Tender vendor:vendorList){
-                System.out.println("Vendor ID : "+vendor.getVendorID()+",  Price :"+vendor.getPrice());
+
+            if (vendorList.size()==0){
                 System.out.println("<--------------------------->");
+                System.out.println("Not Vendor bid agings the tender No : "+tenderID);
+                System.out.println("<--------------------------->");
+            }else {
+
+                System.out.println("All the Bid against the tender No "+tenderID);
+                System.out.println("<--------------------------->");
+                for (Vendor_Tender vendor:vendorList){
+                    System.out.println("Vendor ID : "+vendor.getVendorID()+",  Price :"+vendor.getPrice());
+                    System.out.println("<--------------------------->");
+                }
+
             }
 
         } catch (TenderManagementException e) {
