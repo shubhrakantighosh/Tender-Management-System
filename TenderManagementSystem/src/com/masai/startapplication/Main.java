@@ -35,11 +35,11 @@ public class Main {
                         System.out.println("View All the Tenders : 4");
                         System.out.println("View All the Bids of a tender : 5 ");
                         System.out.println("Assign tender to a vendor : 6");
-                        System.out.println("Exit : 6");
+                        System.out.println("Exit : 7");
 
                         int userAdminInput=scanner.nextInt();
 
-                        if (userAdminInput==6){
+                        if (userAdminInput==7){
                             break;
                         }
 
@@ -90,7 +90,7 @@ public class Main {
                         System.out.println("View all the current Tenders : 1");
                         System.out.println("Place a Bid against a Tender : 2");
                         System.out.println("Assign tender to a vendor : 3");
-                        System.out.println("View his own Bid History : 4");
+                        System.out.println("View Bid History : 4");
                         System.out.println("Exit : 5");
 
                         int userVendorInput=scanner.nextInt();

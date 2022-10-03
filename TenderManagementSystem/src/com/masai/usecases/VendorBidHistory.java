@@ -20,7 +20,7 @@ public class VendorBidHistory {
 
             List<Vendor_Tender>tenderList=new TenderManagementDaoImpl().vendorBidHistory(vendor_tender);
 
-            if(tenderList==null) {
+            if(tenderList.size()!=0) {
 
                 System.out.println("Vendor ID :" + vendorID + ", All the Bid History of tender ");
                 for (Vendor_Tender vendorTender : tenderList) {
